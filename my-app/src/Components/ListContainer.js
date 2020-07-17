@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from './UI/Card';
+import {connect} from 'react-redux';
+
 const ListContainer = props => {
-
-
     const lists = props.toDoList.map(item => <Card text={item.text} 
                                                     key={item.id} 
                                                     id={item.id}
@@ -14,4 +14,10 @@ const ListContainer = props => {
     )
 }
 
-export default ListContainer;
+const mapStateToProps = state => {
+    return {
+        toDoList: state.toDoList
+    }
+}
+
+export default connect(mapStateToProps)(React.memo(ListContainer));

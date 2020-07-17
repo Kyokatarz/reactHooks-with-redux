@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
 
 const InputBar = props => {
 
@@ -6,9 +8,14 @@ const InputBar = props => {
     return(
         <div>
             <input type='input' value={inputField} placeholder='Enter something...' onChange={(event) => {setInputField(event.target.value)}}/>
-            <button onClick = {() => props.submitHandler(inputField)}>Submit</button>
+            <button onClick = {() => props.addNewThing({text: inputField, id: Math.random().toString()})}>Submit</button>
         </div>
     )
 }
 
-export default React.memo(InputBar);
+const mapDispatchToProps = dispatch => {
+    return {
+        addNewThing: (newThing) => dispatch({type: 'ADD', thingToAdd: newThing})
+    }
+}
+export default connect(null, mapDispatchToProps)(React.memo(InputBar));

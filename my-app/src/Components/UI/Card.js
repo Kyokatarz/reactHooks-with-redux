@@ -1,14 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 const Card = props => {
     return(
         <div>
             <li>
                 <p>{props.text}</p>
-                <button onClick={()=> props.deleteHandler(props.id)}>Delete</button>
+                <p>{props.id}</p>
+                <button onClick={() => props.deleteItem(props.id)}>Delete</button>
             </li>
         </div>
     )
 }
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteItem: (thingId) => dispatch({type: 'DELETE', thingToDelete: thingId})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Card);
