@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import InputBar from './UI/InputBar';
 import ListContainer from './ListContainer';
+import ErrorAndLoading from './ErrorAndLoading';
+
 
 const ToDoList = props => {
     useEffect(()=>{
@@ -8,7 +10,8 @@ const ToDoList = props => {
     })
     return (
         <div>
-            <h1>Hello</h1>
+    
+            <ErrorAndLoading/>
             <InputBar/>
             <ListContainer/>
         </div>

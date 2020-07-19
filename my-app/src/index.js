@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import reducer from './Reducers/toDoListReducer';
 
+import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
+import toDoListReducer from './Reducers/toDoListReducer';
+import httpStateReducer from './Reducers/httpStateReducer';
+
+import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  tdl: toDoListReducer,
+  http: httpStateReducer
+}); 
+
+const store = createStore(rootReducer);
 
 
 ReactDOM.render(
