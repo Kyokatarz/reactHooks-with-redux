@@ -3,6 +3,8 @@ import InputBar from './UI/InputBar';
 import ListContainer from './ListContainer';
 import ErrorAndLoading from './ErrorAndLoading';
 
+import './ToDoList.css';
+
 
 const ToDoList = props => {
     useEffect(()=>{
@@ -10,7 +12,7 @@ const ToDoList = props => {
     })
     return (
         <div>
-    
+            <h1>To do list</h1>
             <ErrorAndLoading/>
             <InputBar/>
             <ListContainer/>

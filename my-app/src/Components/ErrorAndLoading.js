@@ -13,7 +13,7 @@ const ErrorWindow = props => {
      ) : null ;
 
     const showIcon = props.isLoading ? (
-        <div className="loadingio-spinner-rolling-q4fibdzvved"><div className="ldio-pl86sw1k0i9"><div></div></div></div>
+        <div className="loadingio-spinner-rolling-q4fibdzvved" id='loading-icon'><div className="ldio-pl86sw1k0i9"><div></div></div></div>
         ) : null;
 
     return(

@@ -1,0 +1,27 @@
+.list-item{
+    height: 30px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    width: calc(70vw + 30px);
+    height: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+li div {
+    display: flex;
+    flex-direction: row;
+}
+
+li input{
+    width: auto;
+    height: auto;
+}

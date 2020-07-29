@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../actions';
 
+import './Card.css';
+
 const Card = props => {
     const [modifyingField, setModifyingField] = useState(props.text);
     const { sendData, receiveData, getError } = props; 
@@ -25,16 +27,18 @@ const Card = props => {
         })
         .catch(err => getError("'Can't save changes!"))
     }
+
     return(
-        <div>
+        <div className='list-item'>
             <li>
                 <input type='text' value = {modifyingField} onChange = {(event)=>setModifyingField(event.target.value)}/>
+                
+                <button onClick={() => deleteHandler(props.id)}>Delete</button>
                 {isSaved ? null : 
                 <div>
-                    <button onClick={()=>modifyHandler(props.id)}>Save Changes!</button>
                     <p>Changes not saved!!</p>
+                    <button onClick={()=>modifyHandler(props.id)}>Save Changes!</button>
                 </div>}
-                <button onClick={() => deleteHandler(props.id)}>Delete</button>
             </li>
         </div>
     )

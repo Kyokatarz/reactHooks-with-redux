@@ -3,6 +3,8 @@ import Card from './UI/Card';
 import {connect} from 'react-redux';
 import * as actionTypes from '../actions';
 
+import './ListContainer.css';
+
 const ListContainer = props => {
     const { setData, sendData, receiveData, getError } = props;
     useEffect(()=>{
@@ -29,7 +31,7 @@ const ListContainer = props => {
                                                     id={item.id}
                                                 />)
     return(
-        <div>
+        <div id='list-container'>
             <ul>{lists}</ul>
         </div>
     )
