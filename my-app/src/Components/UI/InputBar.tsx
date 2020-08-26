@@ -26,7 +26,13 @@ const InputBar: React.FC = () => {
           thingToAdd: { id: data.name, text: inputField },
         });
         console.log(data);
-      });
+      })
+      .catch((err) =>
+        dispatch({
+          type: actionTypes.ERROR,
+          errorMsg: `Cannot Add data to Database!`,
+        })
+      );
   }, [dispatch, inputField]);
 
   return (

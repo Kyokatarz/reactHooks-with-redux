@@ -18,10 +18,17 @@ const Card: React.FC<CardProps> = (props) => {
     dispatch({ type: actionTypes.SEND });
     fetch(`https://react-hooks-9489b.firebaseio.com/toDoList/${thingId}.json`, {
       method: "DELETE",
-    }).then((resp) => {
-      dispatch({ type: actionTypes.RESPONSE });
-      dispatch({ type: actionTypes.DELETE, thingToDelete: thingId });
-    });
+    })
+      .then((resp) => {
+        dispatch({ type: actionTypes.RESPONSE });
+        dispatch({ type: actionTypes.DELETE, thingToDelete: thingId });
+      })
+      .catch((err) =>
+        dispatch({
+          type: actionTypes.ERROR,
+          errorMsg: `Cannot Delete Data from Database!`,
+        })
+      );
   };
 
   const modifyHandler = (thingId: string) => {
@@ -33,14 +40,21 @@ const Card: React.FC<CardProps> = (props) => {
     fetch(`https://react-hooks-9489b.firebaseio.com/toDoList/${thingId}.json`, {
       method: "PATCH",
       body: JSON.stringify({ text: modifyingField }),
-    }).then((resp) => {
-      dispatch({ type: actionTypes.RESPONSE });
-      dispatch({
-        type: actionTypes.MODIFY,
-        newText: modifyingField,
-        thingToModify: thingId,
-      });
-    });
+    })
+      .then((resp) => {
+        dispatch({ type: actionTypes.RESPONSE });
+        dispatch({
+          type: actionTypes.MODIFY,
+          newText: modifyingField,
+          thingToModify: thingId,
+        });
+      })
+      .catch((err) =>
+        dispatch({
+          type: actionTypes.ERROR,
+          errorMsg: `Cannot Modify data from database!`,
+        })
+      );
   };
 
   return (

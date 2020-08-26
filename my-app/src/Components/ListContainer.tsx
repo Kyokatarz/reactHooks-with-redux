@@ -27,7 +27,13 @@ const ListContainer: React.FC = () => {
         }
         dispatch({ type: actionTypes.SET, fetchedList: tempArray });
         dispatch({ type: actionTypes.RESPONSE });
-      });
+      })
+      .catch((err) =>
+        dispatch({
+          type: actionTypes.ERROR,
+          errorMsg: `Cannot Get data from Database!`,
+        })
+      );
   }, [dispatch]);
 
   const lists = toDoList.map((item) => (
