@@ -4,12 +4,17 @@ import * as actionTypes from "../../actions";
 
 import "./Card.css";
 
-const Card = (props) => {
-  const [modifyingField, setModifyingField] = useState(props.text);
-  const isSaved = modifyingField === props.text ? true : false;
+interface CardProps {
+  text: string;
+  id: string;
+}
+
+const Card: React.FC<CardProps> = (props) => {
+  const [modifyingField, setModifyingField] = useState<string>(props.text);
+  const isSaved: boolean = modifyingField === props.text ? true : false;
   const dispatch = useDispatch();
 
-  const deleteHandler = (thingId) => {
+  const deleteHandler = (thingId: string) => {
     dispatch({ type: actionTypes.SEND });
     fetch(`https://react-hooks-9489b.firebaseio.com/toDoList/${thingId}.json`, {
       method: "DELETE",
@@ -19,7 +24,7 @@ const Card = (props) => {
     });
   };
 
-  const modifyHandler = (thingId) => {
+  const modifyHandler = (thingId: string) => {
     if (!modifyingField) {
       return alert("Please don't leave the input field empty!");
     }

@@ -3,10 +3,14 @@ import Card from "./UI/Card";
 import { useDispatch, useSelector } from "react-redux";
 import * as actionTypes from "../actions";
 
+import stateModel from "../models/stateModel.model";
+
 import "./ListContainer.css";
 
-const ListContainer = (props) => {
-  const toDoList = useSelector((state) => state.tdl.toDoList);
+const ListContainer: React.FC = () => {
+  const toDoList = useSelector<any, stateModel[]>(
+    (state) => state.tdl.toDoList
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {

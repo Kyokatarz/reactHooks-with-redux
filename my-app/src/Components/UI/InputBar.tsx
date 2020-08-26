@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import * as actionTypes from "../../actions";
 
 import "./InputBar.css";
-const InputBar = (props) => {
-  const [inputField, setInputField] = useState("");
+
+const InputBar: React.FC = () => {
+  const [inputField, setInputField] = useState<string>("");
   const dispatch = useDispatch();
   const submitHandler = useCallback(() => {
     if (!inputField) {
