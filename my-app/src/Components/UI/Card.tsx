@@ -22,6 +22,7 @@ const Card: React.FC<CardProps> = (props) => {
       .then((resp) => {
         dispatch({ type: actionTypes.RESPONSE });
         dispatch({ type: actionTypes.DELETE, thingToDelete: thingId });
+        dispatch({ type: actionTypes.SET_ALERT, payload: "Note deleted!" });
       })
       .catch((err) =>
         dispatch({
@@ -47,6 +48,10 @@ const Card: React.FC<CardProps> = (props) => {
           type: actionTypes.MODIFY,
           newText: modifyingField,
           thingToModify: thingId,
+        });
+        dispatch({
+          type: actionTypes.SET_ALERT,
+          payload: "Note changes saved!",
         });
       })
       .catch((err) =>
