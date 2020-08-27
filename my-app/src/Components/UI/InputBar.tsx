@@ -25,6 +25,7 @@ const InputBar: React.FC = () => {
           type: actionTypes.ADD,
           thingToAdd: { id: data.name, text: inputField },
         });
+        dispatch({ type: actionTypes.SET_ALERT, payload: "Note added!" });
         console.log(data);
       })
       .catch((err) =>
@@ -40,7 +41,7 @@ const InputBar: React.FC = () => {
       <input
         type="input"
         value={inputField}
-        placeholder="Enter something..."
+        placeholder="Enter note..."
         onChange={(event) => {
           setInputField(event.target.value);
         }}
