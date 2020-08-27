@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as actionTypes from "../actions";
+import * as actionTypes from "../../actions";
 
-import "../Css/ErrorWindow.css";
-import "../Css/LoadingIcon.css";
+import "../../Css/ErrorWindow.css";
+import "../../Css/LoadingIcon.css";
 
 interface ErrorWindowTypes {
   errorMsg: null | string;
