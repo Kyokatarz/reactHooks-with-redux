@@ -29,7 +29,7 @@ const httpStateReducer = (
         errorMsg: action.errorMsg,
         isLoading: false,
       };
-    case actionTypes.CLEAR:
+    case actionTypes.CLR_ERROR:
       return {
         ...state,
         errorMsg: null,
