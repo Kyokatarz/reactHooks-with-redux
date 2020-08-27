@@ -1,0 +1,9 @@
+#app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  place-items: center;
+  font-family: "Merriweather", serif;
+}

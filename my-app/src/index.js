@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import toDoListReducer from "./Reducers/toDoListReducer";
 import httpStateReducer from "./Reducers/httpStateReducer";
 
-import "./index.css";
+import "./Css/index.css";
 import App from "./App";
 
 const rootReducer = combineReducers({

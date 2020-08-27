@@ -1,0 +1,15 @@
+#input-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-bar input {
+  background-color: #fff7ad;
+  font-family: "Karla", sans-serif;
+}
+
+button {
+  font-family: "Karla", sans-serif;
+}

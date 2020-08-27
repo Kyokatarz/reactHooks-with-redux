@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import * as actionTypes from "../../actions";
 
-import "./InputBar.css";
+import "../../Css/InputBar.css";
 
 const InputBar: React.FC = () => {
   const [inputField, setInputField] = useState<string>("");

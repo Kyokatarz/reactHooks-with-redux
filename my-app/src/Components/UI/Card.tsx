@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as actionTypes from "../../actions";
 
-import "./Card.css";
+import "../../Css/Card.css";
 
 interface CardProps {
   text: string;
@@ -58,25 +58,27 @@ const Card: React.FC<CardProps> = (props) => {
   };
 
   return (
-    <div className="list-item">
-      <li>
-        <input
-          type="text"
-          value={modifyingField}
-          onChange={(event) => setModifyingField(event.target.value)}
-        />
+    <li>
+      <textarea
+        value={modifyingField}
+        onChange={(event) => setModifyingField(event.target.value)}
+      />
+      <div
+        role="button"
+        aria-label="Delete note"
+        tabIndex={0}
+        onClick={() => deleteHandler(props.id)}
+      >
+        <i id="delete-btn" className="fas fa-times fa-lg"></i>
+      </div>
 
-        <button onClick={() => deleteHandler(props.id)}>Delete</button>
-        {isSaved ? null : (
-          <div>
-            <p>Changes not saved!!</p>
-            <button onClick={() => modifyHandler(props.id)}>
-              Save Changes!
-            </button>
-          </div>
-        )}
-      </li>
-    </div>
+      {isSaved ? null : (
+        <div className="changes-reminder" role="alert">
+          <p>Changes not saved!!</p>
+          <button onClick={() => modifyHandler(props.id)}>Save Changes!</button>
+        </div>
+      )}
+    </li>
   );
 };
 

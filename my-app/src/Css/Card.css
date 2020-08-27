@@ -1,0 +1,55 @@
+li {
+  position: relative;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  list-style: none;
+  display: flex;
+  background-color: #ff9a5c;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+li textarea {
+  resize: none;
+  width: 90%;
+  height: 75%;
+  font-size: 14px;
+  font-family: "Karla", sans-serif;
+  background-color: #ffb485;
+  border-radius: 5px;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+.changes-reminder {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  margin: 0px;
+  padding: 2px;
+  font-size: 11px;
+  background-color: tomato;
+  font-family: "Inconsolata", monospace;
+}
+
+.changes-reminder p {
+  margin: 2px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.changes-reminder button {
+  font-size: 13px;
+  font-family: "Inconsolata", monospace;
+}
+
+#delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
