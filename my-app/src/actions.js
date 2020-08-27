@@ -8,4 +8,8 @@ export const MODIFY = "MODIFY";
 export const SEND = "SEND";
 export const RESPONSE = "RESPONSE";
 export const ERROR = "ERROR";
-export const CLEAR = "CLEAR";
+export const CLR_ERROR = "CLR_ERROR";
+
+//alert actions
+export const SET_ALERT = "SET_ALERT";
+export const CLR_ALERT = "CLR_ALERT";
