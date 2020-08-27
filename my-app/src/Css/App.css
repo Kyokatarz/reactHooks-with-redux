@@ -6,4 +6,5 @@
   flex-direction: column;
   place-items: center;
   font-family: "Merriweather", serif;
+  position: relative;
 }
