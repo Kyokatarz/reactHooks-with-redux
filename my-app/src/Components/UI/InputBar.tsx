@@ -9,7 +9,10 @@ const InputBar: React.FC = () => {
   const dispatch = useDispatch();
   const submitHandler = useCallback(() => {
     if (!inputField) {
-      return alert("Please don't leave the input field empty!");
+      return dispatch({
+        type: actionTypes.SET_ALERT,
+        payload: "Please don't leave the input field empty",
+      });
     }
 
     dispatch({ type: actionTypes.SEND });
@@ -26,14 +29,15 @@ const InputBar: React.FC = () => {
           thingToAdd: { id: data.name, text: inputField },
         });
         dispatch({ type: actionTypes.SET_ALERT, payload: "Note added!" });
-        console.log(data);
+        setInputField("");
       })
-      .catch((err) =>
+      .catch((err) => {
+        console.error(err);
         dispatch({
           type: actionTypes.ERROR,
           errorMsg: `Cannot Add data to Database!`,
-        })
-      );
+        });
+      });
   }, [dispatch, inputField]);
 
   return (
@@ -42,6 +46,7 @@ const InputBar: React.FC = () => {
         type="input"
         value={inputField}
         placeholder="Enter note..."
+        aria-label="Enter note here"
         onChange={(event) => {
           setInputField(event.target.value);
         }}

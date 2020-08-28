@@ -34,7 +34,10 @@ const Card: React.FC<CardProps> = (props) => {
 
   const modifyHandler = (thingId: string) => {
     if (!modifyingField) {
-      return alert("Please don't leave the input field empty!");
+      dispatch({
+        type: actionTypes.SET_ALERT,
+        payload: "Please don't leave the input field empty",
+      });
     }
 
     dispatch({ type: actionTypes.SEND });
@@ -65,6 +68,7 @@ const Card: React.FC<CardProps> = (props) => {
   return (
     <li>
       <textarea
+        aria-label="Note content"
         value={modifyingField}
         onChange={(event) => setModifyingField(event.target.value)}
       />
@@ -73,8 +77,9 @@ const Card: React.FC<CardProps> = (props) => {
         aria-label="Delete note"
         tabIndex={0}
         onClick={() => deleteHandler(props.id)}
+        className="delete-btn"
       >
-        <i id="delete-btn" className="fas fa-times fa-lg"></i>
+        <i className="fas fa-times fa-lg"></i>
       </div>
 
       {isSaved ? null : (

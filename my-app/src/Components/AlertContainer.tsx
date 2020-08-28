@@ -1,6 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as actionTypes from "../actions";
+import { useSelector } from "react-redux";
 
 import Alert from "./UI/Alert";
 import Error from "./UI/Error";
@@ -22,7 +21,7 @@ const AlertContainer: React.FC = () => {
   } else if (alertState) {
     renderElement = <Alert />;
   }
-  return <div>{renderElement}</div>;
+  return <div role="alert">{renderElement}</div>;
 };
 
 export default React.memo(AlertContainer);

@@ -8,7 +8,9 @@ import "../Css/ToDoList.css";
 const ToDoList: React.FC = () => {
   return (
     <>
-      <h1>To do list</h1>
+      <header>
+        <h1>To do list</h1>
+      </header>
       <AlertContainer />
       <InputBar />
       <ListContainer />
